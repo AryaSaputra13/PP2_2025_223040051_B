@@ -1,0 +1,30 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package id.ac.unpas.modul05;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.SwingUtilities;
+/**
+ *
+ * @author Arya
+ */
+public class Latihan2 {
+    public static void main(String[] args) 
+    {
+        SwingUtilities.invokeLater(new Runnable() 
+        {
+            public void run()
+            {
+                JFrame frame = new JFrame("Jendela naon");
+                JLabel label = new JLabel("Abcd");
+                frame.setSize(400, 300);
+                frame.add(label);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setVisible(true);
+            }
+        });
+    }
+}

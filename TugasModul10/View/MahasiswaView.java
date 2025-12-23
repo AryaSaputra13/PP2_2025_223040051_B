@@ -84,39 +84,95 @@ public class MahasiswaView extends JFrame {
         panelAtas.add(panelCari, BorderLayout.NORTH);
     }
 
-    public String getNama() { return txtNama.getText(); }
-    public String getNim() { return txtNIM.getText(); }
-    public String getJurusan() { return txtJurusan.getText(); }
-    public String getCariInput() { return txtCari.getText(); }
-
-    public void setNama(String nama) { txtNama.setText(nama); }
-    public void setNim(String nim) { txtNIM.setText(nim); }
-    public void setJurusan(String jurusan) { txtJurusan.setText(jurusan); }
+    public String getNama() 
+    { 
+        return txtNama.getText(); 
+    }
     
-    public void addSimpanListener(ActionListener listener) { btnSimpan.addActionListener(listener); }
-    public void addEditListener(ActionListener listener) { btnEdit.addActionListener(listener); }
-    public void addHapusListener(ActionListener listener) { btnHapus.addActionListener(listener); }
-    public void addClearListener(ActionListener listener) { btnClear.addActionListener(listener); }
-    public void addCariListener(ActionListener listener) { btnCari.addActionListener(listener); }
-    public void addTableMouseListener(MouseAdapter adapter) { tableMahasiswa.addMouseListener(adapter); }
-
-    public JTable getTable() { return tableMahasiswa; }
+    public String getNim() 
+    { 
+        return txtNIM.getText(); 
+    }
     
-    public void updateTable(List<Mahasiswa> data) {
+    public String getJurusan() 
+    { 
+        return txtJurusan.getText(); 
+    }
+    
+    public String getCariInput() 
+    { 
+        return txtCari.getText(); 
+    }
+
+    public void setNama(String nama) 
+    { 
+        txtNama.setText(nama); 
+    }
+    
+    public void setNim(String nim) 
+    { 
+        txtNIM.setText(nim); 
+    }
+    
+    public void setJurusan(String jurusan) 
+    { 
+        txtJurusan.setText(jurusan); 
+    }
+    
+    public void addSimpanListener(ActionListener listener) 
+    { 
+        btnSimpan.addActionListener(listener); 
+    }
+    
+    public void addEditListener(ActionListener listener) 
+    { 
+        btnEdit.addActionListener(listener); 
+    }
+    
+    public void addHapusListener(ActionListener listener) 
+    { 
+        btnHapus.addActionListener(listener); 
+    }
+    
+    public void addClearListener(ActionListener listener) 
+    { 
+        btnClear.addActionListener(listener); 
+    }
+    
+    public void addCariListener(ActionListener listener) 
+    { 
+        btnCari.addActionListener(listener); 
+    }
+    
+    public void addTableMouseListener(MouseAdapter adapter) 
+    { 
+        tableMahasiswa.addMouseListener(adapter); 
+    }
+
+    public JTable getTable() 
+    { 
+        return tableMahasiswa; 
+    }
+    
+    public void updateTable(List<Mahasiswa> data) 
+    {
         model.setRowCount(0);
         int no = 1;
-        for (Mahasiswa m : data) {
+        for (Mahasiswa m : data) 
+        {
             model.addRow(new Object[]{ no++, m.getNama(), m.getNim(), m.getJurusan() });
         }
     }
 
-    public void clearForm() {
+    public void clearForm() 
+    {
         txtNama.setText("");
         txtNIM.setText("");
         txtJurusan.setText("");
     }
 
-    public void showMessage(String message) {
+    public void showMessage(String message) 
+    {
         JOptionPane.showMessageDialog(this, message);
     }
 }

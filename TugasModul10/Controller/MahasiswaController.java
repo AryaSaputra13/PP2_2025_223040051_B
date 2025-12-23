@@ -19,7 +19,8 @@ import javax.swing.JTable;
 public class MahasiswaController {
     private MahasiswaView view;
 
-    public MahasiswaController(MahasiswaView view) {
+    public MahasiswaController(MahasiswaView view) 
+    {
         this.view = view;
         
         view.addSimpanListener(e -> simpanData());
@@ -42,89 +43,114 @@ public class MahasiswaController {
         loadData();
     }
 
-    private void loadData() {
-        try {
+    private void loadData() 
+    {
+        try 
+        {
             List<Mahasiswa> list = Mahasiswa.ambilData();
             view.updateTable(list);
-        } catch (Exception e) {
+        } 
+        catch (Exception e) 
+        {
             view.showMessage("Gagal Load Data: " + e.getMessage());
         }
     }
 
-    private void simpanData() {
+    private void simpanData() 
+    {
         if (!validasiInput()) return;
         
         String nama = view.getNama();
         String nim = view.getNim();
         String jurusan = view.getJurusan();
 
-        if (Mahasiswa.cekNIM(nim)) {
+        if (Mahasiswa.cekNIM(nim)) 
+        {
             view.showMessage("NIM sudah terdaftar!");
             return;
         }
 
-        try {
+        try 
+        {
             Mahasiswa m = new Mahasiswa(nama, nim, jurusan);
             m.simpan();
             view.showMessage("Data Berhasil Disimpan");
             view.clearForm();
             loadData();
-        } catch (Exception e) {
+        } 
+        catch (Exception e) 
+        {
             view.showMessage("Gagal Simpan: " + e.getMessage());
         }
     }
 
-    private void editData() {
+    private void editData() 
+    {
         if (!validasiInput()) return;
         
-        try {
+        try 
+        {
             Mahasiswa m = new Mahasiswa(view.getNama(), view.getNim(), view.getJurusan());
             m.edit();
             view.showMessage("Data Berhasil Diubah");
             view.clearForm();
             loadData();
-        } catch (Exception e) {
+        } 
+        catch (Exception e) 
+        {
             view.showMessage("Gagal Edit: " + e.getMessage());
         }
     }
 
-    private void hapusData() {
-        try {
+    private void hapusData() 
+    {
+        try 
+        {
             Mahasiswa m = new Mahasiswa(view.getNama(), view.getNim(), view.getJurusan());
             m.hapus();
             view.showMessage("Data Berhasil Dihapus");
             view.clearForm();
             loadData();
-        } catch (Exception e) {
+        } 
+        catch (Exception e) 
+        {
             view.showMessage("Gagal Hapus: " + e.getMessage());
         }
     }
 
-    private void cariData() {
-        try {
+    private void cariData() 
+    {
+        try 
+        {
             String keyword = view.getCariInput();
             List<Mahasiswa> list = Mahasiswa.cari(keyword);
             view.updateTable(list);
-        } catch (Exception e) {
+        } 
+        catch (Exception e) 
+        {
             view.showMessage("Gagal Mencari: " + e.getMessage());
         }
     }
 
-    private boolean validasiInput() {
+    private boolean validasiInput() 
+    {
         String nama = view.getNama();
         String nim = view.getNim();
 
-        if (nama.trim().isEmpty() || nim.trim().isEmpty()) {
+        if (nama.trim().isEmpty() || nim.trim().isEmpty()) 
+        {
             view.showMessage("Data tidak boleh kosong!");
             return false;
         }
 
-        if (!nama.matches("[a-zA-Z\\s]+")) {
+        if (!nama.matches("[a-zA-Z\\s]+")) 
+        {
             view.showMessage("Nama tidak boleh menggunakan angka!");
             return false;
         }
 
-        if (!nim.matches("\\d+")) {
+        if (!nim.matches("\\d+")) 
+        {
             view.showMessage("NIM hanya boleh diisi angka!");
             return false;
         }
